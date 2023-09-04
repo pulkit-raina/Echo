@@ -19,7 +19,7 @@ jobs:
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-          for collaborator_folder in "WebDev Darshan" "WebDev Pulkit" "WebDev Rachit" "WebDev Raghav"
+          for collaborator_folder in "WebDev-Darshan" "WebDev Pulkit" "WebDev Rachit" "WebDev Raghav"
           do
             cd "$collaborator_folder"
             docker build -t $DOCKERHUB_USERNAME/echo-"$collaborator_folder" .
