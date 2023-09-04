@@ -10,7 +10,7 @@ COPY . /var/www/html/
 # Expose port 80 (the default for Apache)
 EXPOSE 80
 
-ENV port = 80
+ENV port = 8080
 
 # Start the Apache server
 CMD ["apache2-foreground"]
