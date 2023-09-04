@@ -18,25 +18,25 @@ services:
     volumes:
       - "./Echo_Database/Servers.sql:/docker-entrypoint-initdb.d/Servers.sql"
   "WebDev Darshan":
-    image: pulkitraina/echo-"WebDev Darshan"
+    image: pulkitraina/echo-"webdev-darshan"
     ports:
       - "8081:80"
     # Add other configuration as needed
 
   "WebDev Pulkit":
-    image: pulkitraina/echo-"WebDev Pulkit"
+    image: pulkitraina/echo-"webdev-pulkit"
     ports:
       - "8082:80"
     # Add other configuration as needed
 
   "WebDev Rachit":
-    image: pulkitraina/echo-"WebDev Rachit"
+    image: pulkitraina/echo-"webdev-rachit"
     ports:
       - "8083:80"
     # Add other configuration as needed
 
   "WebDev Raghav":
-    image: pulkitraina/echo-"WebDev Raghav"
+    image: pulkitraina/echo-"webdev-raghav"
     ports:
       - "8084:80"
     # Add other configuration as needed
