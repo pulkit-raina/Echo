@@ -30,7 +30,7 @@ services:
     # Add other configuration as needed
 
   "webdev-rachit":
-    image: pulkitraina/echo-"webdev-rachit"
+    image: "pulkitraina/echo-Webdev Rachit"
     ports:
       - "8083:80"
     # Add other configuration as needed
