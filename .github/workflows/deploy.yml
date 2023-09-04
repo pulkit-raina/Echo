@@ -26,18 +26,18 @@ jobs:
           cd ..
 
           cd "WebDev Pulkit"
-          docker build -t $DOCKERHUB_USERNAME/echo-"WebDev-Pulkit" .
-          docker push $DOCKERHUB_USERNAME/echo-"WebDev-Pulkit"
+          docker build -t $DOCKERHUB_USERNAME/echo-"webdev-pulkit" .
+          docker push $DOCKERHUB_USERNAME/echo-"webdev-pulkit"
           cd ..
 
           cd "WebDev Rachit"
-          docker build -t $DOCKERHUB_USERNAME/echo-"WebDev-Rachit" .
-          docker push $DOCKERHUB_USERNAME/echo-"WebDev-Rachit"
+          docker build -t $DOCKERHUB_USERNAME/echo-"webdev-rachit" .
+          docker push $DOCKERHUB_USERNAME/echo-"webdev-rachit"
           cd ..
 
           cd "WebDev Raghav"
-          docker build -t $DOCKERHUB_USERNAME/echo-"WebDev-Raghav" .
-          docker push $DOCKERHUB_USERNAME/echo-"WebDev-Raghav"
+          docker build -t $DOCKERHUB_USERNAME/echo-"webdev-raghav" .
+          docker push $DOCKERHUB_USERNAME/echo-"webdev-raghav"
           cd ..
 
       - name: Deploy MySQL database
