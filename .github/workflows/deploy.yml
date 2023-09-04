@@ -21,8 +21,8 @@ jobs:
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
           
           cd "WebDev Darshan"
-          docker build -t $DOCKERHUB_USERNAME/echo-"WebDev-Darshan" .
-          docker push $DOCKERHUB_USERNAME/echo-"WebDev-Darshan"
+          docker build -t $DOCKERHUB_USERNAME/echo-"webdev-darshan" .
+          docker push $DOCKERHUB_USERNAME/echo-"webdev-darshan"
           cd ..
 
           cd "WebDev Pulkit"
