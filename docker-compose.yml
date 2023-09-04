@@ -8,11 +8,13 @@ services:
       - "8080:80"
   db:
     image: mysql:latest
+    env_file:
+      - .env
     environment:
-      MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
-      MYSQL_DATABASE: ${ MYSQL_DATABASE }
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: "root"
-      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD }
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - "./Echo_Database/Servers.sql:/docker-entrypoint-initdb.d/Servers.sql"
   "WebDev Darshan":

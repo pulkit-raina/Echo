@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD }
-      MYSQL_DATABASE: ${MYSQL_DATABASE }
+      DOCKERHUB_USERNAME: ${{secrets.DOCKERHUB_USERNAME}}
+      DOCKERHUB_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}}
+      MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}}
+      MYSQL_DATABASE: ${{secrets.MYSQL_DATABASE}}
 
     steps:
       - name: Checkout code
@@ -45,7 +45,7 @@ jobs:
 
       - name: Deploy MySQL database
         run: |
-          docker run -d --name mysql-container -e MYSQL_ROOT_PASSWORD=MYSQL_ROOT_PASSWORD -e MYSQL_DATABASE=MYSQL_DATABASE -p 3306:3306 mysql:latest
+          docker run -d --name mysql-container -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_DATABASE=$MYSQL_DATABASE -p 3306:3306 mysql:latest
 
       - name: Clean up old containers
         run: |
@@ -54,4 +54,4 @@ jobs:
 
       - name: Start Docker Compose
         run: |
-          MYSQL_ROOT_PASSWORD=MYSQL_ROOT_PASSWORD MYSQL_DATABASE=MYSQL_DATABASE docker-compose -f docker-compose.yml up -d
+          MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD MYSQL_DATABASE=$MYSQL_DATABASE docker-compose -f docker-compose.yml up -d
