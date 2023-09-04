@@ -19,13 +19,26 @@ jobs:
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-          for collaborator_folder in "WebDev-Darshan" "WebDev Pulkit" "WebDev Rachit" "WebDev Raghav"
-          do
-            cd "$collaborator_folder"
-            docker build -t $DOCKERHUB_USERNAME/echo-"$collaborator_folder" .
-            docker push $DOCKERHUB_USERNAME/echo-"$collaborator_folder"
-            cd ..
-          done
+          
+          cd "WebDev Darshan"
+          docker build -t $DOCKERHUB_USERNAME/echo-"WebDev-Darshan" .
+          docker push $DOCKERHUB_USERNAME/echo-"WebDev-Darshan"
+          cd ..
+
+          cd "WebDev Pulkit"
+          docker build -t $DOCKERHUB_USERNAME/echo-"WebDev-Pulkit" .
+          docker push $DOCKERHUB_USERNAME/echo-"WebDev-Pulkit"
+          cd ..
+
+          cd "WebDev Rachit"
+          docker build -t $DOCKERHUB_USERNAME/echo-"WebDev-Rachit" .
+          docker push $DOCKERHUB_USERNAME/echo-"WebDev-Rachit"
+          cd ..
+
+          cd "WebDev Raghav"
+          docker build -t $DOCKERHUB_USERNAME/echo-"WebDev-Raghav" .
+          docker push $DOCKERHUB_USERNAME/echo-"WebDev-Raghav"
+          cd ..
 
       - name: Deploy MySQL database
         env:
