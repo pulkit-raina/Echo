@@ -1,0 +1,51 @@
+version: '3'
+services:
+  www:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+  db:
+    image: mysql:8.0.34
+    environment:
+      MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+      MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+    volumes:
+      - "./Echo_Database/Servers.sql:/docker-entrypoint-initdb.d/Servers.sql"
+  "WebDev Darshan":
+    image: pulkitraina/echo-"WebDev Darshan"
+    ports:
+      - "8081:80"
+    # Add other configuration as needed
+
+  "WebDev Pulkit":
+    image: pulkitraina/echo-"WebDev Pulkit"
+    ports:
+      - "8082:80"
+    # Add other configuration as needed
+
+  "WebDev Rachit":
+    image: pulkitraina/echo-"WebDev Rachit"
+    ports:
+      - "8083:80"
+    # Add other configuration as needed
+
+  "WebDev Raghav":
+    image: pulkitraina/echo-"WebDev Raghav"
+    ports:
+      - "8084:80"
+    # Add other configuration as needed
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+      MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+    ports:
+      - "3306:3306"
+    # Add other MySQL configuration as needed
+
+  # Add services for web server and other dependencies

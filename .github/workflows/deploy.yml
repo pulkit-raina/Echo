@@ -1,0 +1,48 @@
+name: Deploy to DockerHub
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker images
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: |
+          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+          for collaborator_folder in "WebDev Darshan" "WebDev Pulkit" "WebDev Rachit" "WebDev Raghav"
+          do
+            cd "$collaborator_folder"
+            docker build -t $DOCKERHUB_USERNAME/echo-"$collaborator_folder" .
+            docker push $DOCKERHUB_USERNAME/echo-"$collaborator_folder"
+            cd ..
+          done
+
+      - name: Deploy MySQL database
+        env:
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+        run: |
+          docker run -d --name mysql-container -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_DATABASE=$MYSQL_DATABASE -p 3306:3306 mysql:latest
+
+      - name: Clean up old containers
+        run: |
+          docker ps -aq | xargs docker stop
+          docker ps -aq | xargs docker rm
+      # ... (previous steps)
+
+      - name: Start Docker Compose
+        run: |
+          docker-compose -f docker-compose.yml up -d
+
+      # ... (other steps)
+
