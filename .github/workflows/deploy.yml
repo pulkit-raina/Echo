@@ -54,4 +54,4 @@ jobs:
 
       - name: Start Docker Compose
         run: |
-          MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD MYSQL_DATABASE=$MYSQL_DATABASE docker-compose -f docker-compose.yml up -d
+          MYSQL_ROOT_PASSWORD=MYSQL_ROOT_PASSWORD MYSQL_DATABASE=MYSQL_DATABASE docker-compose -f docker-compose.yml up -d
