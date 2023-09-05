@@ -92,7 +92,7 @@ Quality., Sweets Menu, Our freshly baked bread is the hero of our breakfast menu
         <div class="u-align-left u-container-align-left u-container-style u-group u-group-1">
           <div class="u-container-layout u-valign-middle u-container-layout-1">
             <h3 class="u-text-1">Welcome Back to,</h3>
-            <h1 class="u-align-left u-custom-font u-font-roboto-condensed u-text u-text-2">Echo Deals</h1>
+            <h1 class="u-align-left u-custom-font u-font-roboto-condensed u-text u-text-2">Echo Heelo Deals</h1>
           </div>
         </div>
         <div class="u-list u-list-1">
