@@ -22,11 +22,9 @@ jobs:
       - name: Build and push Docker images
         run: |
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-          
-          cd "Echo"
-          docker build -t $DOCKERHUB_USERNAME/echo-"echo" .
+
+          docker build -t $DOCKERHUB_USERNAME/echo-"echo" -f Echo/Dockerfile Echo
           docker push $DOCKERHUB_USERNAME/echo-"echo"
-          cd ..
 
       - name: Deploy MySQL database
         run: |
