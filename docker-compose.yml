@@ -3,7 +3,7 @@ services:
   www:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     ports:
       - "8080:80"
   db:
